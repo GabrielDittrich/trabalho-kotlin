@@ -2,6 +2,7 @@ package com.example.trabalhomobile
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,15 @@ class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+
+        val txtTituloNome : TextView = findViewById(R.id.txtTituloNome)
+        val nome = intent.getStringExtra("NOME_USUARIO")
+
+        txtTituloNome.text = if (nome.isNullOrEmpty()) {
+            "Nenhum nome recebido"
+        } else {
+            "Bem-vindo, $nome!"
+        }
 
         recyclerView = findViewById(R.id.recyclerView)
 
