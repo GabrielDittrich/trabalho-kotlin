@@ -1,6 +1,7 @@
 package com.example.trabalhomobile
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,7 @@ class MainActivity2 : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var livroAdapter: LivroAdapter
+    private lateinit var btnVoltar : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,5 +27,10 @@ class MainActivity2 : AppCompatActivity() {
         livroAdapter = LivroAdapter(this, livros)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = livroAdapter
+
+        btnVoltar = findViewById(R.id.btnVoltar)
+        btnVoltar.setOnClickListener {
+            finish()
+        }
     }
 }
