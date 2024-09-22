@@ -28,11 +28,13 @@
     <TextView
         android:id="@+id/txtDescricao"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="19dp"
+        android:text="Descrição do Livro"
+        android:textColor="#858585"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/imgLivro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Descrição do Livro" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgLivro"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-data class Livro(val titulo: String, val descricao: String, val imagemResId: Int)
+data class Livro(val titulo: String, val descricao: String, val descricaoDetalhada: String, val imagemResId: Int)
+
 
 class LivroAdapter(private val context: Context, private val livros: List<Livro>) : RecyclerView.Adapter<LivroAdapter.LivroViewHolder>() {
 
@@ -22,13 +23,13 @@ class LivroAdapter(private val context: Context, private val livros: List<Livro>
         val livro = livros[position]
         holder.bind(livro)
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, Epicteto::class.java).apply {
-                putExtra("titulo_livro", livro.titulo)
-                putExtra("nome_livro", livro.descricao)
-                putExtra("imagem_livro", livro.imagemResId)
-            }
+            val intent = Intent(context, Epicteto::class.java)
+            intent.putExtra("titulo_livro", livro.titulo)
+            intent.putExtra("descricao_livro", livro.descricaoDetalhada)
+            intent.putExtra("imagem_livro", livro.imagemResId)
             context.startActivity(intent)
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -45,5 +46,6 @@ class LivroAdapter(private val context: Context, private val livros: List<Livro>
             txtDescricao.text = livro.descricao
             imgLivro.setImageResource(livro.imagemResId)
         }
+
     }
 }

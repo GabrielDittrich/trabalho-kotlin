@@ -19,7 +19,7 @@ class Epicteto : AppCompatActivity() {
 
         // Recebe os dados passados pela Intent
         val tituloLivro = intent.getStringExtra("titulo_livro")
-        val descricaoLivro = intent.getStringExtra("nome_livro")
+        val descricaoLivro = intent.getStringExtra("descricao_livro")
         val imagemLivro = intent.getIntExtra("imagem_livro", R.drawable.ic_launcher_foreground) // Imagem padrão se não vier nada
 
         // Configura os componentes com os dados recebidos
