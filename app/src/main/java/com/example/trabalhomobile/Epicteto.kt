@@ -12,20 +12,20 @@ class Epicteto : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_epicteto) // Certifique-se de que o layout XML está configurado corretamente
 
-        val txtNomeLivro: TextView = findViewById(R.id.txtNomeLivro)
-        val imgLivro: ImageView = findViewById(R.id.imgLivro)
-        val txtDescricaoLivro: TextView = findViewById(R.id.txtDescricaoLivro)
+        val txtNomeFilme: TextView = findViewById(R.id.txtNomeFilme)
+        val imgFilme: ImageView = findViewById(R.id.imgFilme)
+        val txtDescricaoFilme: TextView = findViewById(R.id.txtDescricaoFilme)
         val btnVoltar : Button = findViewById(R.id.btnVoltar)
 
         // Recebe os dados passados pela Intent
-        val tituloLivro = intent.getStringExtra("titulo_livro")
-        val descricaoLivro = intent.getStringExtra("descricao_livro")
-        val imagemLivro = intent.getIntExtra("imagem_livro", R.drawable.ic_launcher_foreground) // Imagem padrão se não vier nada
+        val tituloFilme = intent.getStringExtra("titulo_filme")
+        val descricaoFilme = intent.getStringExtra("descricao_filme")
+        val imagemFilme = intent.getIntExtra("imagem_filme", R.drawable.ic_launcher_foreground) // Imagem padrão se não vier nada
 
         // Configura os componentes com os dados recebidos
-        txtNomeLivro.text = tituloLivro ?: "Título não disponível"
-        txtDescricaoLivro.text = descricaoLivro ?: "Descrição não disponível"
-        imgLivro.setImageResource(imagemLivro)
+        txtNomeFilme.text = tituloFilme ?: "Título não disponível"
+        txtDescricaoFilme.text = descricaoFilme ?: "Descrição não disponível"
+        imgFilme.setImageResource(imagemFilme)
 
         btnVoltar.setOnClickListener {
             finish()

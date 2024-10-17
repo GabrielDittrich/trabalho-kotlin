@@ -6,7 +6,7 @@
     android:padding="8dp">
 
     <ImageView
-        android:id="@+id/imgLivro"
+        android:id="@+id/imgFilme"
         android:layout_width="80dp"
         android:layout_height="80dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,23 +18,23 @@
         android:id="@+id/txtTitulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="Título do Filme"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imgLivro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgLivro"
         app:layout_constraintBottom_toTopOf="@+id/txtDescricao"
-        android:text="Título do Livro" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgFilme"
+        app:layout_constraintTop_toTopOf="@+id/imgFilme" />
 
     <TextView
         android:id="@+id/txtDescricao"
         android:layout_width="0dp"
         android:layout_height="19dp"
-        android:text="Descrição do Livro"
+        android:text="Descrição do Filme"
         android:textColor="#858585"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgLivro"
+        app:layout_constraintStart_toEndOf="@+id/imgFilme"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

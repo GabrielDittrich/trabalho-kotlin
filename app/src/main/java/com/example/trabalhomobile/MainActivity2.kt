@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity2 : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var livroAdapter: LivroAdapter
+    private lateinit var filmeAdapter: FilmeAdapter
     private lateinit var btnVoltar : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,12 +29,12 @@ class MainActivity2 : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
 
         // Criar uma lista de livros para exibir
-        val livros = listOf(
-            Livro("\tWall-e", "\t\tPrólogo", "Apresenta a história de um planeta Terra devastado pela poluição e pelo lixo acumulado pela humanidade. A humanidade abandonou o planeta e passou a viver em uma nave, deixando robôs para limpar o local. \n\n" +
+        val filmes = listOf(
+            Filme("\tWall-e", "\t\tPrólogo", "Apresenta a história de um planeta Terra devastado pela poluição e pelo lixo acumulado pela humanidade. A humanidade abandonou o planeta e passou a viver em uma nave, deixando robôs para limpar o local. \n\n" +
                     "O personagem principal, Wall-E, é o último robô do seu modelo e se dedica a compactar o lixo e a coletar objetos curiosos. Até que um dia, uma nave traz Eva, um novo robô, que se apaixona por Wall-E. \n\n" +
                     "O filme Wall-E é uma reflexão sobre o consumismo desenfreado, a poluição, o descarte inadequado de resíduos e o esgotamento dos recursos naturais. Ele também aborda o uso da tecnologia como substituição da mão de obra humana e os reflexos negativos da comunicação exclusiva pelas redes sociais. ", R.drawable.walle),
 
-            Livro("\tMotoqueiros Selvagens", "\t\tPrólogo", "A estrada aberta... um símbolo de liberdade, de aventuras desconhecidas e de sonhos que se escondem além do horizonte. Para muitos, ela representa a fuga do cotidiano, o refúgio de uma vida de responsabilidades e compromissos. Para quatro amigos de meia-idade — Doug, Woody, Bobby e Dudley — a estrada era exatamente o que eles precisavam, embora talvez ainda não soubessem disso.\n" +
+            Filme("\tMotoqueiros Selvagens", "\t\tPrólogo", "A estrada aberta... um símbolo de liberdade, de aventuras desconhecidas e de sonhos que se escondem além do horizonte. Para muitos, ela representa a fuga do cotidiano, o refúgio de uma vida de responsabilidades e compromissos. Para quatro amigos de meia-idade — Doug, Woody, Bobby e Dudley — a estrada era exatamente o que eles precisavam, embora talvez ainda não soubessem disso.\n" +
                     "\n" +
                     "Cada um deles estava preso em suas próprias rotinas: Doug, o dentista estressado e pai de família, sentia-se engolido pela monotonia do trabalho; Woody, o ex-executivo arrogante, estava falido e fingindo manter seu estilo de vida glamoroso; Bobby, o encanador frustrado, vivia sufocado pelas cobranças de sua esposa; e Dudley, o programador socialmente desajeitado, sonhava em encontrar coragem para viver mais intensamente.\n" +
                     "\n" +
@@ -42,7 +42,7 @@ class MainActivity2 : AppCompatActivity() {
                     "\n" +
                     "O que começa como uma simples viagem de moto logo se transforma em algo maior do que imaginavam. A estrada, com seus desafios e surpresas, os leva não apenas a confrontos com gangues de verdadeiros motoqueiros, mas também ao encontro de suas próprias fragilidades e sonhos esquecidos.\n"
                     , R.drawable.motoqueiros),
-            Livro(
+            Filme(
                 "\tO Poderoso Chefão",
                 "\t\tPrólogo",
                 "No coração da cidade de Nova York, onde a luz e a escuridão se entrelaçam, a família Corleone reina suprema. Dominando o submundo do crime organizado, Don Vito Corleone, conhecido como \"O Poderoso Chefão\", é um homem de poder e respeito, que conduz seus negócios com uma mistura de firmeza e sabedoria. Para ele, a honra e a lealdade são fundamentais, e sua palavra é lei.\n" +
@@ -55,7 +55,7 @@ class MainActivity2 : AppCompatActivity() {
                 R.drawable.chefao
             ),
 
-            Livro(
+            Filme(
                 "\tO Alquimista",
                 "\t\tPrólogo",
                 "Durante os anos mais sombrios da Segunda Guerra Mundial, a Europa está envolta em um manto de terror e opressão sob o regime nazista. Enquanto a sombra do Terceiro Reich se espalha, um grupo de soldados americanos conhecido como os \"Bastardos Inglórios\" surge das cinzas da brutalidade e da injustiça. Comandados pelo Tenente Aldo Raine, esses guerreiros não são apenas lutadores; eles são caçadores de nazistas, determinados a infligir terror nas fileiras inimigas.\n" +
@@ -71,9 +71,9 @@ class MainActivity2 : AppCompatActivity() {
         )
 
 
-        livroAdapter = LivroAdapter(this, livros)
+        filmeAdapter = FilmeAdapter(this, filmes)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = livroAdapter
+        recyclerView.adapter = filmeAdapter
 
         btnVoltar = findViewById(R.id.btnVoltar)
         btnVoltar.setOnClickListener {
