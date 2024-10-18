@@ -27,7 +27,7 @@ interface FilmeDao {
     fun deletarFilme(filme: Filme)
 
     @Query("SELECT * FROM filme_table")
-    fun listarFilme()
+    fun listarFilme():LiveData<List<Filme>>
 
     @Query("SELECT * FROM filme_table ORDER BY id ASC")
     fun listarFilmeEmOrdem() : LiveData<List<Filme>>

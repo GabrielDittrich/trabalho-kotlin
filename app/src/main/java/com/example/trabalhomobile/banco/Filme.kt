@@ -11,5 +11,6 @@ data class Filme(
     @PrimaryKey(autoGenerate = true) // autoincrement
     val id : Int,
     val nome : String,
+    val descricao : String,
     val ano : String
 ): Parcelable

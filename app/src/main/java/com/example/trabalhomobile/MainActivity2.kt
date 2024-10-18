@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.trabalhomobile.banco.FilmeViewModel
 
 class MainActivity2 : AppCompatActivity() {
+
+    lateinit var filmeViewModel : FilmeViewModel
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var filmeAdapter: FilmeAdapter
@@ -16,6 +20,12 @@ class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+
+        filmeViewModel = ViewModelProvider(this).get(FilmeViewModel::class.java)
+
+     // filmeViewModel.addFilme(Filme(0,"marvel","2020"))
+
+     // filmeViewModel.updateFilme(Filme(2,"Outro Nome", "2020"))
 
         val txtTituloNome : TextView = findViewById(R.id.txtTituloNome)
         val nome = intent.getStringExtra("NOME_USUARIO")
