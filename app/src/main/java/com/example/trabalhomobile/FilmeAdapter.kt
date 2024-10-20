@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-data class Filme(val titulo: String, val descricao: String, val descricaoDetalhada: String, val imagemResId: Int)
+data class Filme(val titulo: String,val ano : String, val descricao: String, val descricaoDetalhada: String, val imagemResId: Int)
 
 
 class FilmeAdapter(private val context: Context, private val filmes: List<Filme>) : RecyclerView.Adapter<FilmeAdapter.FilmeViewHolder>() {
@@ -23,13 +23,15 @@ class FilmeAdapter(private val context: Context, private val filmes: List<Filme>
         val filme = filmes[position]
         holder.bind(filme)
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, Epicteto::class.java)
-            intent.putExtra("titulo_filme", filme.titulo)
-            intent.putExtra("descricao_filme", filme.descricaoDetalhada)
-            intent.putExtra("imagem_filme", filme.imagemResId)
+            // Navegar para DetalheFilmeActivity com os detalhes do filme
+            val intent = Intent(context, DetalheFilmeActivity::class.java).apply {
+                putExtra("titulo_filme", filme.titulo)
+                putExtra("ano_filme", filme.ano)
+                putExtra("descricao_filme", filme.descricaoDetalhada)
+                putExtra("imagem_filme", filme.imagemResId)
+            }
             context.startActivity(intent)
         }
-
     }
 
     override fun getItemCount(): Int {
@@ -38,14 +40,17 @@ class FilmeAdapter(private val context: Context, private val filmes: List<Filme>
 
     class FilmeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val txtTitulo: TextView = itemView.findViewById(R.id.txtTitulo)
+        private val txtAno: TextView = itemView.findViewById(R.id.txtAno)
         private val txtDescricao: TextView = itemView.findViewById(R.id.txtDescricao)
         private val imgFilme: ImageView = itemView.findViewById(R.id.imgFilme)
 
         fun bind(filme: Filme) {
             txtTitulo.text = filme.titulo
             txtDescricao.text = filme.descricao
+            txtAno.text = filme.ano
             imgFilme.setImageResource(filme.imagemResId)
         }
-
     }
 }
+
+

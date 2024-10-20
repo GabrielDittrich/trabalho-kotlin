@@ -51,14 +51,14 @@ dependencies {
 
     //Room
     implementation("androidx.room:room-runtime:${rootProject.extra["room_version"]}")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.6")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.recyclerview)
     ksp("androidx.room:room-compiler:${rootProject.extra["room_version"]}")
     implementation("androidx.room:room-ktx:${rootProject.extra["room_version"]}")
 
 // Lifecycle components
-    implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation ("androidx.lifecycle:lifecycle-common-java8:2.8.6")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
+    implementation (libs.androidx.lifecycle.extensions)
+    implementation (libs.androidx.lifecycle.common.java8)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
 }

@@ -12,5 +12,6 @@ data class Filme(
     val id : Int,
     val nome : String,
     val descricao : String,
+    val descricaoDetalhada : String,
     val ano : String
 ): Parcelable
