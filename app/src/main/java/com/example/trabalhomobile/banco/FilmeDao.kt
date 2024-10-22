@@ -11,25 +11,15 @@ import androidx.room.Update
 @Dao
 interface FilmeDao {
 
-    //  meuLivro = new Livro();
-    //  meuLivro.nome = "Marvel";
-    //  meuLivro.ano = 2022;
-
-    //FilmeDao.addLivro(meuLivro);
+    @Query("SELECT * FROM filme_table")
+    fun getAllFilmes(): LiveData<List<Filme>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addFilme(filme: Filme)
-
-    @Update
-    fun atualizarFilme(filme: Filme)
+    suspend fun inserir(filme: Filme)
 
     @Delete
-    fun deletarFilme(filme: Filme)
+    suspend fun deletar(filme: Filme)
 
-    @Query("SELECT * FROM filme_table")
-    fun listarFilme():LiveData<List<Filme>>
-
-    @Query("SELECT * FROM filme_table ORDER BY id ASC")
-    fun listarFilmeEmOrdem() : LiveData<List<Filme>>
-
+    @Update
+    suspend fun atualizar(filme: Filme)
 }

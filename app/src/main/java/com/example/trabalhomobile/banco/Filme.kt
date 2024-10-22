@@ -8,10 +8,11 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "filme_table")
 data class Filme(
-    @PrimaryKey(autoGenerate = true) // autoincrement
-    val id : Int,
-    val nome : String,
-    val descricao : String,
-    val descricaoDetalhada : String,
-    val ano : String
+    @PrimaryKey(autoGenerate = true) // auto increment
+    val id: Int,
+    var nome: String,
+    var descricao: String,
+    var descricaoDetalhada: String,
+    var ano: String,
+    var imagemUri: String? // Adicione este campo para armazenar o URI da imagem
 ): Parcelable

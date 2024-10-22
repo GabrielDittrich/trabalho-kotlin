@@ -7,26 +7,29 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class FilmeViewModel(application: Application): AndroidViewModel(application) {
+class FilmeViewModel(application: Application) : AndroidViewModel(application) {
 
-    val listaFilmes: LiveData<List<Filme>>
-    private val repository : FilmeRepository
+    private val repository: FilmeRepository
+    val todosOsFilmes: LiveData<List<Filme>>
 
     init {
-        var filmeDao = FilmeDatabase.getDatabase(application).filmeDao()
+        val filmeDao = FilmeDatabase.getDatabase(application).filmeDao()
         repository = FilmeRepository(filmeDao)
-        listaFilmes = repository.listaFilmes
+        todosOsFilmes = repository.todosOsFilmes
     }
 
-    fun addFilme(filme: Filme){
-        viewModelScope.launch(Dispatchers.IO){
-            repository.addFilme(filme)
-        }
+    // Função para adicionar um filme
+    fun inserir(filme: Filme) = viewModelScope.launch(Dispatchers.IO) {
+        repository.inserir(filme)
     }
 
-    fun updateFilme(filme: Filme){
-        viewModelScope.launch (Dispatchers.IO){
-            repository.deletarFilme(filme)
-        }
+    // Função para deletar um filme
+    fun deletar(filme: Filme) = viewModelScope.launch(Dispatchers.IO) {
+        repository.deletar(filme)
+    }
+
+    // Função para atualizar um filme
+    fun atualizar(filme: Filme) = viewModelScope.launch(Dispatchers.IO) {
+        repository.atualizar(filme)
     }
 }

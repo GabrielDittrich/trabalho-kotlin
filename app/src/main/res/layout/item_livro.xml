@@ -6,6 +6,18 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
+    <Button
+        android:id="@+id/alterarBtn"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:text="Alterar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.601"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricao"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ImageView
         android:id="@+id/imgFilme"
         android:layout_width="80dp"
@@ -49,4 +61,16 @@
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/excluirBtn"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:text="Excluir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="@+id/imgFilme"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricao"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

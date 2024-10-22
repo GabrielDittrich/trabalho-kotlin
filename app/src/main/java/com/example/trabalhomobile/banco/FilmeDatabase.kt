@@ -1,41 +1,41 @@
-package com.example.trabalhomobile.banco
+    package com.example.trabalhomobile.banco
 
-import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+    import android.content.Context
+    import androidx.room.Database
+    import androidx.room.Room
+    import androidx.room.RoomDatabase
 
-@Database(entities = [Filme::class], version = 1, exportSchema = false)
+    @Database(entities = [Filme::class], version = 1, exportSchema = false)
 
-abstract class FilmeDatabase: RoomDatabase() {
+    abstract class FilmeDatabase: RoomDatabase() {
 
-    abstract fun filmeDao(): FilmeDao
+        abstract fun filmeDao(): FilmeDao
 
-    companion object {
-        @Volatile
-        private var INSTANCE: FilmeDatabase? = null
+        companion object {
+            @Volatile
+            private var INSTANCE: FilmeDatabase? = null
 
 
-        fun getDatabase(context: Context): FilmeDatabase {
-            val tempInstance = INSTANCE
-            if (tempInstance != null) {
-                return tempInstance
+            fun getDatabase(context: Context): FilmeDatabase {
+                val tempInstance = INSTANCE
+                if (tempInstance != null) {
+                    return tempInstance
 
-            } else {
+                } else {
 
-                synchronized(this) {
-                    val instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        FilmeDatabase::class.java,
-                        "filme_table"
-                    ).build()
+                    synchronized(this) {
+                        val instance = Room.databaseBuilder(
+                            context.applicationContext,
+                            FilmeDatabase::class.java,
+                            "filme_table"
+                        ).build()
 
-                    INSTANCE = instance
-                    return instance
+                        INSTANCE = instance
+                        return instance
+                    }
                 }
             }
         }
     }
-}
 
 
